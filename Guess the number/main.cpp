@@ -31,8 +31,10 @@ int main() {
 	cout << "- - - - - - - - - -" << endl;
 	cout << endl;
 
+	start:
+
 	cout << "Выбери уровень сложности: " << endl;
-	cout << "1, 2, 3?" << endl;
+	cout << "1, 2, 3, 4?" << endl;
 	cin >> answer;
 
 	if (answer == 1) {
@@ -54,6 +56,13 @@ int main() {
 		choice = random(1, 100);
 		round = 3;
 	}
+	else if (answer == 4) {
+		cout << "Экстремальный уровень сложности, указан диапозон чисел от 1 до 1000!" << endl;
+		cout << "Твоё количество раундов равно 1" << endl;
+		cout << "Также подсказки отсутствуют!" << endl;
+		choice = random(1, 1000);
+		round = 1;
+	}
 	else {
 		cout << "Ошибка! Некорректный ввод в консоль!" << endl;
 		return 1;
@@ -74,7 +83,6 @@ int main() {
 			}
 			else if (reply == choice) {
 				cout << "Ура, ты выиграл печеньку!" << endl;
-				return 0;
 			}
 			else {
 				cout << "Ошибка! Некорректный ввод в консоль! Давай попробуем ещё раз!" << endl;
@@ -90,7 +98,6 @@ int main() {
 			}
 			else if (reply == choice) {
 				cout << "Ура, ты выиграл печеньку!" << endl;
-				return 0;
 			}
 			else {
 				cout << "Ошибка! Некорректный ввод в консоль! Давай попробуем ещё раз!" << endl;
@@ -103,7 +110,6 @@ int main() {
 			}
 			else if (reply == choice) {
 				cout << "Ура, ты выиграл печеньку!" << endl;
-				return 0;
 			}
 			else {
 				cout << "Ошибка! Некорректный ввод в консоль! Давай попробуем ещё раз!" << endl;
@@ -112,7 +118,23 @@ int main() {
 		}
 	}
 
-	cout << "Загаданное число: " << choice << endl;
+	cout << "- - - - - - - - - -" << endl;
+	cout << endl;
+	cout << "И так, загаданное число было: " << choice << endl;
+	cout << "Хочешь ли ты продолжить игру?" << endl;
+	cout << endl;
+	cout << "- - - - - - - - - -" << endl;
+	cout << endl;
+
+	cin >> res;
+
+	if (res == "да") {
+		goto start;
+	}
+	else {
+		cout << "Ну тогда удачи!" << endl;
+		return 0;
+	}
 
 	system("pause > nul");
 
